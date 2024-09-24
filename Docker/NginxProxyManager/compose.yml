@@ -16,8 +16,8 @@ services:
       - DB_MYSQL_PASSWORD=npm
       - DB_MYSQL_NAME=npm
     volumes:
-      - /srv/dockerdata/NGINXProxyManager/data:/data
-      - /srv/dockerdata/NGINXProxyManager/letsencrypt:/etc/letsencrypt
+      - data:/srv/dockerdata/NGINXProxyManager/data
+      - etc/letsencrypt:/srv/dockerdata/NGINXProxyManager/letsencrypt
   nginxproxymanager-db:
     image: docker.io/jc21/mariadb-aria:10.11.5
     environment:
