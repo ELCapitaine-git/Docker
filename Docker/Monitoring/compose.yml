@@ -27,5 +27,5 @@ services:
     ports:
       - "9221:9221"
     volumes:
-      - /srv/dockerdata/pve/pve.yml:/etc/pve.yml
+      - /srv/dockerdata/pve/pve.yml:/etc/prometheus/pve.yml
     restart: unless-stopped
