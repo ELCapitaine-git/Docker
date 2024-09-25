@@ -29,3 +29,15 @@ services:
     volumes:
       - /srv/dockerdata/pve/pve.yml:/etc/prometheus/pve.yml
     restart: unless-stopped
+  tautulli:
+    image: ghcr.io/tautulli/tautulli:latest
+    container_name: tautulli
+    restart: unless-stopped
+    ports:
+      - "8181:8181"
+    volumes:
+      - /srv/dockerdata/tautulli/config:/config
+    environment:
+      - PUID=<1000>
+      - PGID=<1000>
+      - TZ=<America/Toronto>
