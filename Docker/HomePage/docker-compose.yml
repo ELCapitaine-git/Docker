@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - type: bind
-        source: /mnt/homepage
+        source: /srv/dockerdata/homepage/config
         target: /app/config
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
