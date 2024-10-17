@@ -8,8 +8,6 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - type: bind
-        source: /srv/dockerdata/homepage/config
-        target: /app/config
+        /srv/dockerdata/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
