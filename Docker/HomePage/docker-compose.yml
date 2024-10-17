@@ -8,6 +8,6 @@ services:
     ports:
       - "3000:3000"
     volumes:
-        /srv/dockerdata/homepage/config:/app/config
+      - /srv/dockerdata/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
