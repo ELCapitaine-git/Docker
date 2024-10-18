@@ -28,8 +28,8 @@ services:
     restart: unless-stopped
 volumes:
   cifs_mount:
-  driver: local
-  driver_opts:
-    type: cifs
-    device: "//plexserver/d"
-    o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
+    driver: local
+    driver_opts:
+      type: cifs
+      device: "//plexserver/d"
+      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
