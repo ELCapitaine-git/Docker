@@ -1,3 +1,9 @@
+volumes:
+  cifs_mount:
+    driver_opts:
+      type: cifs
+      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
+      device: "$PLEX_STORAGE"
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -27,10 +33,3 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
-volumes:
-  cifs_mount:
-    driver: local
-    driver_opts:
-      type: cifs
-      device: "$PLEX_STORAGE" PLEX_DATA
-      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
