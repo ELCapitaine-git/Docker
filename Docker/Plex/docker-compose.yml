@@ -20,6 +20,7 @@ services:
       - TZ=Etc/UTC
       - PLEXSHARE_USERNAME=$PLEXSHARE_USERNAME
       - PLEXSHARE_PASSWORD=$PLEXSHARE_PASSWORD
+      - $PLEX_STORAGE=$PLEX_STORAGE
     volumes:
       - /srv/dockerdata/radarr/data:/config
       - cifs_mount:/home/data/
@@ -31,5 +32,5 @@ volumes:
     driver: local
     driver_opts:
       type: cifs
-      device: "//plexserver/d"
+      device: "$PLEX_STORAGE"
       o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
