@@ -2,7 +2,7 @@ volumes:
   cifs_mount:
     driver_opts:
       type: cifs
-      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
+      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD,vers=3.0"
       device: "$PLEX_STORAGE"
 services:
   sonarr:
