@@ -32,5 +32,5 @@ volumes:
     driver: local
     driver_opts:
       type: cifs
-      device: "$PLEX_STORAGE"
+      device: "$PLEX_STORAGE" PLEX_DATA
       o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
