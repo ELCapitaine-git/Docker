@@ -29,7 +29,7 @@ services:
       - $PLEX_STORAGE=$PLEX_STORAGE
     volumes:
       - /srv/dockerdata/radarr/data:/config
-      - cifs_mount:/plex_storage/data
+      - cifs_mount:/plex_data
     ports:
       - 7878:7878
     restart: unless-stopped
