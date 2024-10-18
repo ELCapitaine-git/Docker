@@ -18,8 +18,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - PLEXSHARE_USERNAME=${PLEXSHARE_USERNAME}
-      - PLEXSHARE_PASSWORD=${PLEXSHARE_PASSWORD}
+      - PLEXSHARE_USERNAME=$PLEXSHARE_USERNAME
+      - PLEXSHARE_PASSWORD=$PLEXSHARE_PASSWORD
     volumes:
       - /srv/dockerdata/radarr/data:/config
       - cifs_mount:/home/data/
@@ -31,5 +31,5 @@ volumes:
   driver: local
   driver_opts:
     type: cifs
-    device: //plexserver/d
-    o: username= ${PLEXSHARE_USERNAME},password=${PLEXSHARE_PASSWORD}
+    device: "//plexserver/d"
+    o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD"
