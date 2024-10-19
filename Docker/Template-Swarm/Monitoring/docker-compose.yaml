@@ -55,8 +55,8 @@ services:
       - "8181:8181"
     volumes:
       - type: bind
-        source: 
-      - /mnt/tautulli/config:/config
+        source: /mnt/tautulli/config
+        target: /config
     environment:
       - PUID=<1000>
       - PGID=<1000>
