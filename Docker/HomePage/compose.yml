@@ -1,3 +1,4 @@
+#Docker Swarm
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
