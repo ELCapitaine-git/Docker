@@ -4,8 +4,7 @@ services:
     ports:
       - "3001:3000"
     volumes:
-    - type: bind
-        /mnt/grafana:/var/lib/grafanaa
+      /mnt/grafana:/var/lib/grafanaa
     restart: unless-stopped
   prometheus:
     image: prom/prometheus:latest
