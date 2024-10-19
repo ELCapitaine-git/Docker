@@ -20,9 +20,9 @@ services:
       - "9221:9221"
     volumes:
       /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
+    restart: unless-stoped
   tautulli:
     image: ghcr.io/tautulli/tautulli:latest
-    restart: unless-stopped
     ports:
       - "8181:8181"
     volumes:
