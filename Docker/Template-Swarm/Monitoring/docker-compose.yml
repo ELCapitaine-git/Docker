@@ -4,29 +4,29 @@ services:
     ports:
       - "3001:3000"
     volumes:
-      /mnt/grafana:/var/lib/grafanaa
+      - /mnt/grafana:/var/lib/grafanaa
     restart: unless-stopped
   prometheus:
     image: prom/prometheus:latest
     ports:
       - "9090:9090"
     volumes:
-      /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
-      /mnt/prometheus/data:/prometheus
+      - /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /mnt/prometheus/data:/prometheus
     restart: unless-stopped
   prompve:
     image: prompve/prometheus-pve-exporter:latest
     ports:
       - "9221:9221"
     volumes:
-      /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
+      - /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
     restart: unless-stoped
   tautulli:
     image: ghcr.io/tautulli/tautulli:latest
     ports:
       - "8181:8181"
     volumes:
-      /mnt/tautulli/config:/config
+      - /mnt/tautulli/config:/config
     environment:
       - PUID=<1000>
       - PGID=<1000>
