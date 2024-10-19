@@ -1,67 +1,35 @@
-version: '3.7'
-
 services:
   grafana:
     image: docker.io/grafana/grafana-oss:latest
     ports:
-      - "3000:3000"
+      - "3001:3000"
     volumes:
     - type: bind
-      source: /mnt/grafana
-      target: /var/lib/grafana
-#    deploy:
-#      mode: replicated
-#      replicas: 1
-#      placement:
-#        constraints: [node.role == manager]
+        /mnt/grafana:/var/lib/grafanaa
     restart: unless-stopped
   prometheus:
     image: prom/prometheus:latest
     ports:
       - "9090:9090"
     volumes:
-    - type: bind
-      source: /mnt/prometheus/etc/prometheus.yml
-      target: /etc/prometheus/prometheus.yml
-    - type: bind
-      source: /mnt/prometheus/data
-      target: /prometheus
-#    deploy:
-#      mode: replicated
-#      replicas: 1
-#      placement:
-#        constraints: [node.role == manager]
+      /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
+      /mnt/prometheus/data:/prometheus
     restart: unless-stopped
   prompve:
     image: prompve/prometheus-pve-exporter:latest
     ports:
       - "9221:9221"
     volumes:
-    - type : bind
-      source: /mnt/prompve/pve.yml
-      target: /etc/prometheus/pve.yml
-#    deploy:
-#      mode: replicated
-#      replicas: 1
-#      placement:
-#        constraints: [node.role == manager]
-    restart: unless-stopped
+      /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
   tautulli:
     image: ghcr.io/tautulli/tautulli:latest
     restart: unless-stopped
     ports:
       - "8181:8181"
     volumes:
-      - type: bind
-        source: /mnt/tautulli/config
-        target: /config
+      /mnt/tautulli/config:/config
     environment:
       - PUID=<1000>
       - PGID=<1000>
       - TZ=<America/Toronto>
-#    deploy:
-#      mode: replicated
-#      replicas: 1
-#      placement:
-#        constraints: [node.role == manager]
     restart: unless-stopped
