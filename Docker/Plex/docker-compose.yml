@@ -1,9 +1,9 @@
-volumes:
-  network_plex:
-    driver_opts:
-      type: cifs
-      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD,vers=3.0"
-      device: "//$PLEX_STORAGE/D"
+#volumes:
+#  network_plex:
+#    driver_opts:
+#      type: cifs
+#      o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD,vers=3.0"
+#      device: "//$PLEX_STORAGE/D"
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -30,7 +30,7 @@ services:
       - type: bind
         source: /mnt/radarr/config
         target: /config
-      - network_plex:/home/plexdata
+#      - network_plex:/home/plexdata
     ports:
       - 7878:7878
     restart: unless-stopped
