@@ -36,6 +36,3 @@ networks:
   agent_network:
     driver: overlay
     attachable: true
-
-volumes:
-  portainer_data:
