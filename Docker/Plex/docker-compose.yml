@@ -1,9 +1,9 @@
 volumes:
-  cifs_mount:
+  network_plex:
     driver_opts:
       type: cifs
       o: "username=$PLEXSHARE_USERNAME,password=$PLEXSHARE_PASSWORD,vers=3.0"
-      device: "$PLEX_STORAGE"
+      device: "//$PLEX_STORAGE/D"
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -24,12 +24,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - PLEXSHARE_USERNAME=$PLEXSHARE_USERNAME
-      - PLEXSHARE_PASSWORD=$PLEXSHARE_PASSWORD
-      - $PLEX_STORAGE=$PLEX_STORAGE
     volumes:
-      - /srv/dockerdata/radarr/data:/config
-      - cifs_mount:/home/plexdata
+      - type: bind
+        source: /mnt/radarr/config
+        target: /config
+      - network_plex:/home/plexdata
     ports:
       - 7878:7878
     restart: unless-stopped
