@@ -13,7 +13,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /srv/dockerdata/sonarr/data:/config
+      - type: bind
+        source: /mnt/sonarr/config
+        target: /config
     ports:
       - 8989:8989
     restart: unless-stopped
