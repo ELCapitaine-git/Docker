@@ -10,6 +10,14 @@ volumes:
       o: bind
 
 services:
+  grafana:
+    image: docker.io/grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - 3001:3000
+    volumes:
+      - /mnt/grafana:/var/lib/grafana
+    restart: unless-stopped
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -19,19 +27,11 @@ services:
       - /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-data:/prometheus
     restart: unless-stopped
-  grafana:
-    image: docker.io/grafana/grafana-oss:latest
-    container_name: grafana
-    ports:
-      - 3001:3000
-    volumes:
-      - /mnt/grafana:/var/lib/grafana
-    restart: unless-stopped
   prompve:
     container_name: prompve  
     image: prompve/prometheus-pve-exporter:latest
     ports:
-      - "9221:9221"
+      - 9221:9221
     volumes:
       - /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
     restart: unless-stopped
@@ -39,7 +39,7 @@ services:
     container_name: tautulli
     image: ghcr.io/tautulli/tautulli:latest
     ports:
-      - "8181:8181"
+      - 8181:8181
     volumes:
       - /mnt/tautulli/config:/config
     environment:
