@@ -1,3 +1,6 @@
+---
+version: '3'
+
 volumes:
   prometheus-data:
     driver: local
@@ -7,6 +10,16 @@ volumes:
       o: bind
 
 services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - /mnt/prometheus/etc/:/config
+      - prometheus-data:/prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"  
+    restart: unless-stopped
   grafana:
     image: docker.io/grafana/grafana-oss:latest
     ports:
@@ -14,17 +27,7 @@ services:
     volumes:
       - /mnt/grafana:/var/lib/grafanaa
     restart: unless-stopped
-  prometheus:
-    image: prom/prometheus:latest
-    ports:
-      - "9090:9090"
-    volumes:
-      - /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus-data:/prometheus
-    restart: unless-stopped
-    command: 
-      - "--config.file=/config/prometheus.yaml"
-  prompve:
+
     image: prompve/prometheus-pve-exporter:latest
     ports:
       - "9221:9221"
