@@ -1,0 +1,1 @@
+# Portainer Business Edition Template
