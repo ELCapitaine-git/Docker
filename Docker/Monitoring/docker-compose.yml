@@ -7,6 +7,12 @@ volumes:
       type: none
       device: /mnt/prometheus/data
       o: bind
+  grafana-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/grafana
+      o: bind
 
 services:
   grafana:
@@ -15,7 +21,7 @@ services:
     ports:
       - 3001:3000
     volumes:
-      - /mnt/grafana:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     restart: unless-stopped
   prometheus:
     image: prom/prometheus:latest
