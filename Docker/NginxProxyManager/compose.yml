@@ -1,29 +1,13 @@
-volumes:
-  nginxproxymanager-data:
-  nginxproxymanager-ssl:
-  nginxproxymanager-db:
+version: '3.8'
 services:
-  nginxproxymanager:
-    image: docker.io/jc21/nginx-proxy-manager:latest
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
     ports:
       - 80:80
       - 81:81
       - 443:443
-    environment:
-      - DB_MYSQL_HOST=nginxproxymanager-db
-      - DB_MYSQL_PORT=3306
-      - DB_MYSQL_USER=npm
-      - DB_MYSQL_PASSWORD=npm
-      - DB_MYSQL_NAME=npm
     volumes:
       - data:/srv/dockerdata/NGINXProxyManager/data
       - etc/letsencrypt:/srv/dockerdata/NGINXProxyManager/letsencrypt
-  nginxproxymanager-db:
-    image: docker.io/jc21/mariadb-aria:10.11.5
-    environment:
-      - MYSQL_ROOT_PASSWORD=npm
-      - MYSQL_DATABASE=npm
-      - MYSQL_USER=npm
-      - MYSQL_PASSWORD=npm
-    volumes:
-      - nginxproxymanager-db:/var/lib/mysql
+    restart: unless-stopped
