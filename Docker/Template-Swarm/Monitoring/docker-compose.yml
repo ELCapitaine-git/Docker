@@ -16,10 +16,8 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - /mnt/prometheus/etc/:/config
+      - /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-data:/prometheus
-    command: 
-      - "--config.file=/etc/prometheus/prometheus.yml"  
     restart: unless-stopped
   grafana:
     image: docker.io/grafana/grafana-oss:latest
