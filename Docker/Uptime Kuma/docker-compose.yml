@@ -4,8 +4,6 @@ services:
   uptimekuma:
     image: elestio/uptime-kuma:latest
     container_name: uptimekuma
-    healthcheck:
-    disable: true
     ports:
       - 13001:3001
     volumes:
