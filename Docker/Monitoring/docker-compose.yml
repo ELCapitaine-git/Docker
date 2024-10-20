@@ -25,7 +25,7 @@ services:
     ports:
       - 3001:3000
     volumes:
-      - /mnt/grafana:/var/lib/grafanaa
+      - /mnt/grafana:/var/lib/grafana
     restart: unless-stopped
   prompve:
     container_name: prompve  
