@@ -9,4 +9,4 @@ services:
       - "3306:3306"
     volumes:
       - /mnt/uptime_kuma/server:/app/server
-      - /mnt/uptime_kuma/dbL/app/dbL
+      - /mnt/uptime_kuma/db:/app/db
