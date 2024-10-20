@@ -10,3 +10,4 @@ services:
       - /mnt/radarr/config:/config
     ports:
       - 7878:7878
+    restart: unless-stopped
