@@ -13,10 +13,9 @@ services:
     volumes:
       - /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
       - /mnt/prometheus/data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
     restart: unless-stopped
+    command: 
+      - "--config.file=/config/prometheus.yaml"
   prompve:
     image: prompve/prometheus-pve-exporter:latest
     ports:
