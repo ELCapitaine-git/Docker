@@ -1,3 +1,11 @@
+volumes:
+  prometheus-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/prometheus/data
+      o: bind
+
 services:
   grafana:
     image: docker.io/grafana/grafana-oss:latest
@@ -12,7 +20,7 @@ services:
       - "9090:9090"
     volumes:
       - /mnt/prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml
-      - /mnt/prometheus/data:/prometheus
+      - prometheus-data:/prometheus
     restart: unless-stopped
     command: 
       - "--config.file=/config/prometheus.yaml"
