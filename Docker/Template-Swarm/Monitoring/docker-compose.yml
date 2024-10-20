@@ -18,7 +18,8 @@ services:
     volumes:
       - /mnt/prometheus/etc/:/config
       - prometheus-data:/prometheus
-    command: "--config.file=/etc/prometheus/prometheus.yml"  
+    command: 
+      - "--config.file=/etc/prometheus/prometheus.yml"  
     restart: unless-stopped
   grafana:
     image: docker.io/grafana/grafana-oss:latest
