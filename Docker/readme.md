@@ -1,6 +1,6 @@
-# Docker Compospe Production
+# Docker Compose Production
 
-## Hompage
+## Homepage
 <a href=https://gethomepage.dev>Homepage docs</a>
 
 ## Nginx Proxy Manager
