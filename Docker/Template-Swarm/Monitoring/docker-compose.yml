@@ -22,12 +22,14 @@ services:
     restart: unless-stopped
   grafana:
     image: docker.io/grafana/grafana-oss:latest
+    container_name: grafana
     ports:
       - "3001:3000"
     volumes:
       - /mnt/grafana:/var/lib/grafanaa
     restart: unless-stopped
-
+  prompve:
+    container_name: prompve  
     image: prompve/prometheus-pve-exporter:latest
     ports:
       - "9221:9221"
