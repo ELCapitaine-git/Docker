@@ -4,10 +4,10 @@ services:
   uptimekuma:
     image: elestio/uptime-kuma:latest
     container_name: uptimekuma
+    healthcheck:
+    disable: true
     ports:
-      - 3002:3001
-      - 3306:3306
+      - 13001:3001
     volumes:
-      - /mnt/uptime_kuma/server:/app/server
-      - /mnt/uptime_kuma/db:/app/db
+      - /mnt/uptime_kuma/data:/app/data
     restart: unless-stopped
