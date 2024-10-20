@@ -7,8 +7,6 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - type: bind
-        source: /mnt/radarr/config
-        target: /config
+      - /mnt/radarr/config:/config
     ports:
       - 7878:7878
