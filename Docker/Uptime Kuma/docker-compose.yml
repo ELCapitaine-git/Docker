@@ -1,12 +1,12 @@
-version: '3.8'
+version: '3'
 
 services:
   uptimekuma:
     image: elestio/uptime-kuma:latest
     container_name: uptimekuma
     ports:
-      - "3002:3001"
-      - "3306:3306"
+      - 3002:3001
+      - 3306:3306
     volumes:
       - /mnt/uptime_kuma/server:/app/server
       - /mnt/uptime_kuma/db:/app/db
