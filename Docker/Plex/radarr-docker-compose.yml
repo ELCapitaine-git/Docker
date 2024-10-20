@@ -12,9 +12,3 @@ services:
         target: /config
     ports:
       - 7878:7878
-    deploy:
-      mode: replicated
-      replicas: 1
-      placement:
-        constraints: [node.role == manager]     
-    restart: unless-stopped

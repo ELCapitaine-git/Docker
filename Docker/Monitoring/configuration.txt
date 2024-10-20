@@ -1,8 +1,0 @@
-Docker Stack
-
-Include : 
-
-Prometheus
-Grafana : Dashboard
-Pve Exporter : Proxmox 
-Tautulli : Plex Monitor
