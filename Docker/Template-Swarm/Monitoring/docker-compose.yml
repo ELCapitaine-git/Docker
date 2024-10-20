@@ -37,6 +37,7 @@ services:
       - /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
     restart: unless-stopped
   tautulli:
+    container_name: tautulli
     image: ghcr.io/tautulli/tautulli:latest
     ports:
       - "8181:8181"
