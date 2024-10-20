@@ -4,13 +4,16 @@
 
 ## Nginx Proxy Manager
 
-## Plex (Sonarr & Radarr)
+## Plex Add-on
+#### Sonarr
+#### Radarr
 
 ## Portainer (Business Edition & Community Edition)
+#### Business Edition
+#### Community Edition
 
 ## Monitoring
-
-### Prometheus  
-### Grafana
-### PromPve
-### Tautulli
+#### Prometheus  
+#### Grafana
+#### PromPve
+#### Tautulli
