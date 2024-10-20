@@ -8,7 +8,7 @@
 #### Sonarr
 #### Radarr
 
-## Portainer (Business Edition & Community Edition)
+## Portainer
 #### Business Edition
 #### Community Edition
 
