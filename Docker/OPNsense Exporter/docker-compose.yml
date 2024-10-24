@@ -1,0 +1,19 @@
+version: '3'
+services:
+  opnsense-exporter:
+    image: ghcr.io/athennamind/opnsense-exporter:latest
+    container_name: opensense-exporter
+    restart: always
+    command:
+      - --opnsense.protocol=https
+      - --opnsense.address=ops.example.com
+      - --exporter.instance-label=instance1
+      - --web.listen-address=:8080
+      #- --exporter.disable-arp-table
+      #- --exporter.disable-cron-table
+      #- ....
+    environment:
+      OPNSENSE_EXPORTER_OPS_API_KEY: "<your-key>"
+      OPNSENSE_EXPORTER_OPS_API_SECRET: "<your-secret>"
+    ports:
+      - "8080:8080"
