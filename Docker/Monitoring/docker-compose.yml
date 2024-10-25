@@ -40,15 +40,15 @@ services:
     volumes:
       - /mnt/prompve/pve.yml:/etc/prometheus/pve.yml
     restart: unless-stopped
-  tautulli:
-    container_name: tautulli
-    image: ghcr.io/tautulli/tautulli:latest
-    ports:
-      - 8181:8181
-    volumes:
-      - /mnt/tautulli/config:/config
-    environment:
-      - PUID=<1000>
-      - PGID=<1000>
-      - TZ=<America/Toronto>
-    restart: unless-stopped
+#  tautulli:
+#    container_name: tautulli
+#    image: ghcr.io/tautulli/tautulli:latest
+#    ports:
+#      - 8181:8181
+#    volumes:
+#      - /mnt/tautulli/config:/config
+#    environment:
+#      - PUID=<1000>
+#      - PGID=<1000>
+#      - TZ=<America/Toronto>
+#    restart: unless-stopped
