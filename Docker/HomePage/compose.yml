@@ -3,8 +3,8 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
-      #PUID: 1000
-      #PGID: 1000
+      - PUID: 1000
+      - PGID: 1000
       - HOMEPAGE_VAR_PIHOLE_2_URL="{{HOMEPAGE_VAR_PIHOLE_2_URL}}"
       - HOMEPAGE_VAR_PIHOLE_1_API="{{HOMEPAGE_VAR_PIHOLE_1_API}}"
       - HOMEPAGE_VAR_PIHOLE_2_API="{{HOMEPAGE_VAR_PIHOLE_2_API}}"
