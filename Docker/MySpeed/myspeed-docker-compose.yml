@@ -5,6 +5,6 @@ services:
     ports:
     - 5216:5216
     restart: 
-      uless-stopeed
+      unless-stopeed
     volumes:
       - /mnt/myspeed:/myspeed/data
