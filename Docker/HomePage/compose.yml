@@ -5,6 +5,8 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
+    env_file:
+      - stack.env
     ports:
       - "3000:3000"
     volumes:
