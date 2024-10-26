@@ -1,0 +1,19 @@
+volumes:
+  mypseed:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/myspeed
+      o: bind
+
+
+services:
+  myspeed:
+    image: docker.io/germannewsmaker/myspeed:latest
+    container_name: myspeed
+    ports:
+    - 5216:5216
+    restart: 
+      uless-stopeed
+    volumes:
+      - myspeed:/myspeed/data
